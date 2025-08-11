@@ -22,7 +22,7 @@ export function TabsGroup<T>({
         <button
           key={idx}
           onClick={() => setToggledTab(tab.value)}
-          className={`py-2 px-4 text-sm font-medium text-text-light cursor-pointer uppercase ${
+          className={`py-2 px-4 text-sm font-medium text-primary-text cursor-pointer uppercase ${
             toggledTab === tab.value ? "border-b border-aqua/20" : ""
           }`}
         >

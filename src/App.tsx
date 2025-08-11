@@ -18,7 +18,7 @@ function App() {
       <Route
         path={activePath}
         element={
-          <div className="bg-deep-blue h-screen overflow-hidden flex items-center justify-center p-28 space-x-20 gap-20">
+          <div className="bg-app-bg h-screen overflow-hidden flex items-center justify-center p-28 space-x-20 gap-20">
             <ContentPane activePath={activePath} />
             <ContentSelector activePath={activePath} />
           </div>

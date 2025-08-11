@@ -10,14 +10,8 @@ body {
 
 @theme {
   --font-sans: "Poppins", "ui-sans-serif", "system-ui";
-  /* --color-deep-blue: #001f3f;
-  --color-surface-2: #0f3057;
-  --color-text-light: #f0f0f0;
-  --color-aqua: #61a0ff;
-  --color-gold: #ffbf69; */
-  --color-deep-blue: #f7faff; /* app background: soft off-white with a cool tint */
+  --color-app-bg: #f7faff; /* app background: soft off-white with a cool tint */
   --color-surface-2: #ffffff; /* cards/surfaces */
-  --color-text-light: #0b1220; /* primary text: deep navy-gray for contrast */
+  --color-primary-text: #0b1220; /* primary text: deep navy-gray for contrast */
   --color-aqua: #2563eb; /* accent: clean blue for links/buttons */
-  --color-gold: #0fa3b1; /* secondary accent (turquoise/teal) */
 }

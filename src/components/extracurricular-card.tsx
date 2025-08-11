@@ -24,7 +24,7 @@ export function ExtracurricularCard({
   const { position, event, badges } = extracurricular;
 
   return (
-    <div className="max-w-3xl text-text-light flex flex-col space-y-2 p-4 md:p-6 border-b border-aqua/20  hover:border-aqua/40 transition">
+    <div className="max-w-3xl text-primary-text flex flex-col space-y-2 p-4 md:p-6 border-b border-aqua/20  hover:border-aqua/40 transition">
       <div className="flex items-center justify-between">
         <p className="inline-flex items-center tracking-wide">
           <span className="font-semibold">{position.title}</span>
@@ -41,7 +41,7 @@ export function ExtracurricularCard({
           {formatDate(event.date)}
         </p>
       </div>
-      <p className="mt-2 text-sm leading-6 text-text-light/90">
+      <p className="mt-2 text-sm leading-6 text-primary-text/90">
         {position.description}
       </p>
       <div className="mt-2 flex flex-wrap gap-2">
