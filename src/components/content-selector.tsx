@@ -1,22 +1,15 @@
 import type { JSX } from "react";
-import { ROUTES } from "../routes";
-import { NavLink } from "react-router-dom";
+import { ROUTES, type RouteType } from "../routes";
 import {
   BriefcaseBusiness,
   FolderOpenDot,
   MailPlus,
   SquareUser,
 } from "lucide-react";
+import { SelectorItem, type SelectorItemProps } from "./selector-item";
 
 interface ContentSelectorProps {
-  readonly activePath: (typeof ROUTES)[keyof typeof ROUTES];
-}
-
-interface SelectorItemProps {
-  readonly isActive: boolean;
-  readonly path: (typeof ROUTES)[keyof typeof ROUTES];
-  readonly icon: JSX.Element;
-  readonly label: string;
+  readonly activePath: RouteType;
 }
 
 const ICON_STYLE = "h-8 w-8";
@@ -59,24 +52,5 @@ export function ContentSelector({
         />
       ))}
     </div>
-  );
-}
-
-function SelectorItem({
-  isActive,
-  path,
-  icon,
-  label,
-}: SelectorItemProps): JSX.Element {
-  return (
-    <NavLink
-      to={path}
-      className={`w-full h-full aspect-square border border-aqua rounded-lg flex flex-col items-center justify-center cursor-pointer text-aqua transition-colors duration-300 gap-4 ${
-        isActive ? " border-text-light" : "border-aqua hover:border-text-light"
-      }`}
-    >
-      {icon}
-      <span className={`${isActive ? "text-text-light" : ""}`}>{label}</span>
-    </NavLink>
   );
 }
