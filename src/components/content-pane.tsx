@@ -1,17 +1,19 @@
 import type { JSX } from "react";
-import { useLocation } from "react-router-dom";
-import { ROUTES } from "../routes";
+import { ROUTES, type RouteType } from "../routes";
 import { AboutContent } from "./about-content";
+import { ExperienceContent } from "./experience-content";
 
-export function ContentPane(): JSX.Element {
-  const location = useLocation();
+interface ContentPaneProps {
+  readonly activePath: RouteType;
+}
 
-  function getContentForPath(path: string): JSX.Element {
-    switch (path) {
+export function ContentPane({ activePath }: ContentPaneProps): JSX.Element {
+  function getContentForPath(): JSX.Element {
+    switch (activePath) {
       case ROUTES.ABOUT:
         return <AboutContent />;
       case ROUTES.EXPERIENCE:
-        return <p>Experience</p>;
+        return <ExperienceContent />;
       case ROUTES.PROJECTS:
         return <p>Projects</p>;
       case ROUTES.CONTACT:
@@ -21,5 +23,5 @@ export function ContentPane(): JSX.Element {
     }
   }
 
-  return <div className="flex-1">{getContentForPath(location.pathname)}</div>;
+  return <div className="flex-1">{getContentForPath()}</div>;
 }

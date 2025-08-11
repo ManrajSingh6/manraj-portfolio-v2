@@ -15,15 +15,17 @@ export function SelectorItem({
   icon,
   label,
 }: SelectorItemProps): JSX.Element {
+  const commonStyle = isActive ? "text-aqua" : "text-text-light";
+
   return (
     <NavLink
       to={path}
       className={`w-full h-full aspect-square border border-aqua rounded-lg flex flex-col items-center justify-center cursor-pointer text-aqua transition-colors duration-300 gap-4 ${
-        isActive ? " border-text-light" : "border-aqua hover:border-text-light"
+        isActive ? " border-aqua" : "border-text-light hover:border-text-light"
       }`}
     >
-      <span className={`${isActive ? "text-text-light" : ""}`}>{icon}</span>
-      <span className={`${isActive ? "text-text-light" : ""}`}>{label}</span>
+      <span className={commonStyle}>{icon}</span>
+      <span className={commonStyle}>{label}</span>
     </NavLink>
   );
 }

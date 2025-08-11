@@ -11,7 +11,7 @@ export function AboutContent(): JSX.Element {
         development, and have a goal as a developer to leverage technology to
         create a lasting impact on users.
       </p>
-      <button className="bg-gold p-4 text-deep-blue w-fit">
+      <button className="bg-aqua p-4 text-deep-blue w-fit">
         View My Resume
       </button>
     </div>
