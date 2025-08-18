@@ -20,7 +20,7 @@ export function SelectorItem({
   return (
     <NavLink
       to={path}
-      className={`border-aqua text-aqua flex aspect-square h-full w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border transition-colors duration-300 ${
+      className={`border-aqua text-aqua flex aspect-square h-full w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border bg-white transition-colors duration-300 ${
         isActive
           ? 'border-aqua'
           : 'border-primary-text hover:border-primary-text'

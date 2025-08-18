@@ -3,6 +3,7 @@ import { ROUTES, type RouteType } from '../routes'
 import { AboutContent } from './about-content'
 import { ExperienceContent } from './experience-content'
 import { ProjectContent } from './project-content'
+import { ContactContent } from './contact-content'
 
 interface ContentPaneProps {
   readonly activePath: RouteType
@@ -18,7 +19,7 @@ export function ContentPane({ activePath }: ContentPaneProps): JSX.Element {
       case ROUTES.PROJECTS:
         return <ProjectContent />
       case ROUTES.CONTACT:
-        return <p>Contact</p>
+        return <ContactContent />
       default:
         return <p>This wasn't supposed to happen...</p>
     }
