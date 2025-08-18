@@ -2,6 +2,7 @@ import type { JSX } from "react";
 import { ROUTES, type RouteType } from "../routes";
 import { AboutContent } from "./about-content";
 import { ExperienceContent } from "./experience-content";
+import { ProjectContent } from "./project-content";
 
 interface ContentPaneProps {
   readonly activePath: RouteType;
@@ -15,7 +16,7 @@ export function ContentPane({ activePath }: ContentPaneProps): JSX.Element {
       case ROUTES.EXPERIENCE:
         return <ExperienceContent />;
       case ROUTES.PROJECTS:
-        return <p>Projects</p>;
+        return <ProjectContent />;
       case ROUTES.CONTACT:
         return <p>Contact</p>;
       default:

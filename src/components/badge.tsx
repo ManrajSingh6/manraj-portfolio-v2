@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 
-export function Badge({ badge }: { badge: string }): JSX.Element {
+function Badge({ badge }: { badge: string }): JSX.Element {
   return (
     <span
       key={badge}
@@ -10,5 +10,19 @@ export function Badge({ badge }: { badge: string }): JSX.Element {
     >
       {badge}
     </span>
+  );
+}
+
+export function BadgeContainer({
+  badges,
+}: {
+  badges: readonly string[];
+}): JSX.Element {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {badges.map((badge, idx) => (
+        <Badge key={idx} badge={badge} />
+      ))}
+    </div>
   );
 }
