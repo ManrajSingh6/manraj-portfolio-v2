@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import 'tailwindcss';
 
 body {
-  font-family: "Poppins", "ui-sans-serif", "system-ui";
+  font-family: 'Poppins', 'ui-sans-serif', 'system-ui';
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 @theme {
-  --font-sans: "Poppins", "ui-sans-serif", "system-ui";
+  --font-sans: 'Poppins', 'ui-sans-serif', 'system-ui';
   --color-app-bg: #f7faff; /* app background: soft off-white with a cool tint */
   --color-surface-2: #ffffff; /* cards/surfaces */
   --color-primary-text: #0b1220; /* primary text: deep navy-gray for contrast */

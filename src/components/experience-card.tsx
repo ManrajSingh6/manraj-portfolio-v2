@@ -1,29 +1,29 @@
-import type { JSX } from "react";
-import { formatDate } from "../utils/date";
-import { BaseEntryCard } from "./base-entry-card";
+import type { JSX } from 'react'
+import { formatDate } from '../utils/date'
+import { BaseEntryCard } from './base-entry-card'
 
 export interface ExperienceEntry {
   readonly position: {
-    readonly title: string;
-    readonly startDate: Date;
-    readonly endDate?: Date;
-    readonly description: string;
-  };
+    readonly title: string
+    readonly startDate: Date
+    readonly endDate?: Date
+    readonly description: string
+  }
   readonly company: {
-    readonly name: string;
-    readonly url?: string;
-  };
-  readonly badges: readonly string[];
+    readonly name: string
+    readonly url?: string
+  }
+  readonly badges: readonly string[]
 }
 
 interface ExperienceCardProps {
-  readonly experience: ExperienceEntry;
+  readonly experience: ExperienceEntry
 }
 
 export function ExperienceCard({
-  experience,
+  experience
 }: ExperienceCardProps): JSX.Element {
-  const { position, company, badges } = experience;
+  const { position, company, badges } = experience
 
   return (
     <BaseEntryCard
@@ -31,10 +31,10 @@ export function ExperienceCard({
       subtitle={company.name}
       href={company.url}
       dateText={`${formatDate(position.startDate)} - ${
-        position.endDate ? formatDate(position.endDate) : "Present"
+        position.endDate ? formatDate(position.endDate) : 'Present'
       }`}
       description={position.description}
       badges={badges}
     />
-  );
+  )
 }

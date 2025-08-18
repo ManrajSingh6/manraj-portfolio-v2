@@ -1,34 +1,34 @@
-import type { JSX } from "react";
+import type { JSX } from 'react'
 
 export interface Tab<T> {
-  readonly label: string;
-  readonly value: T;
+  readonly label: string
+  readonly value: T
 }
 
 interface TabsGroupProps<T> {
-  readonly tabs: readonly Tab<T>[];
-  readonly toggledTab: T;
-  readonly setToggledTab: (tab: T) => void;
+  readonly tabs: readonly Tab<T>[]
+  readonly toggledTab: T
+  readonly setToggledTab: (tab: T) => void
 }
 
 export function TabsGroup<T>({
   tabs,
   toggledTab,
-  setToggledTab,
+  setToggledTab
 }: TabsGroupProps<T>): JSX.Element {
   return (
-    <div className="flex items-center gap-2">
+    <div className='flex items-center gap-2'>
       {tabs.map((tab, idx) => (
         <button
           key={idx}
           onClick={() => setToggledTab(tab.value)}
-          className={`py-2 px-4 text-sm font-medium text-primary-text cursor-pointer uppercase ${
-            toggledTab === tab.value ? "border-b border-aqua" : ""
+          className={`text-primary-text cursor-pointer px-4 py-2 text-sm font-medium uppercase ${
+            toggledTab === tab.value ? 'border-aqua border-b' : ''
           }`}
         >
           {tab.label}
         </button>
       ))}
     </div>
-  );
+  )
 }

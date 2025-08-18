@@ -1,33 +1,33 @@
-import type { JSX } from "react";
-import { NavLink } from "react-router-dom";
-import type { RouteType } from "../routes";
+import type { JSX } from 'react'
+import { NavLink } from 'react-router-dom'
+import type { RouteType } from '../routes'
 
 export interface SelectorItemProps {
-  readonly isActive: boolean;
-  readonly path: RouteType;
-  readonly icon: JSX.Element;
-  readonly label: string;
+  readonly isActive: boolean
+  readonly path: RouteType
+  readonly icon: JSX.Element
+  readonly label: string
 }
 
 export function SelectorItem({
   isActive,
   path,
   icon,
-  label,
+  label
 }: SelectorItemProps): JSX.Element {
-  const commonStyle = isActive ? "text-aqua" : "text-primary-text";
+  const commonStyle = isActive ? 'text-aqua' : 'text-primary-text'
 
   return (
     <NavLink
       to={path}
-      className={`w-full h-full aspect-square border border-aqua rounded-lg flex flex-col items-center justify-center cursor-pointer text-aqua transition-colors duration-300 gap-4 ${
+      className={`border-aqua text-aqua flex aspect-square h-full w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border transition-colors duration-300 ${
         isActive
-          ? " border-aqua"
-          : "border-primary-text hover:border-primary-text"
+          ? 'border-aqua'
+          : 'border-primary-text hover:border-primary-text'
       }`}
     >
       <span className={commonStyle}>{icon}</span>
       <span className={commonStyle}>{label}</span>
     </NavLink>
-  );
+  )
 }
