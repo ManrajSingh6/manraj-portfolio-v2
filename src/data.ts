@@ -91,7 +91,7 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
     title: 'SpendViz - Small Business Finance Tracker',
     description:
       'Developed a finance tracker app to analyze user-uploaded bank statements for profit analysis. Actively used by 2 small businesses to reduce analysis times.',
-    imageUrl: '../public/spendviz-logo.png',
+    imageUrl: '/spendviz-logo.png',
     badges: ['Python', 'Typescript', 'GraphQL', 'React', 'AWS', 'Docker'],
     tags: ['full-stack']
   },
@@ -99,7 +99,7 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
     title: 'Energy Storage System Health Forecasting - Capstone Project',
     description:
       'Developed a predictive maintenance tool for battery energy storage systems, utilizing time-series analysis and machine learning to forecast battery degradation. This data-driven solution allowed customers to bypass invasive testing procedures, and reduce site downtime.',
-    imageUrl: '../public/energytoolbase-logo.jpg',
+    imageUrl: '/energytoolbase-logo.jpg',
     badges: [
       'Python',
       'Typescript',
@@ -115,7 +115,7 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
     title: 'Wilddex - Distributed Wildlife Observation',
     description:
       'Built a full-stack distributed web app containerized with Docker Compose. Consisting of API, ML inference, and DB services designed for high availability and fault tolerance. Used Redis with Redlock for distributed consistency, and integrated a custom CNN via Flask plus GPT APIs to classify wildlife photos and generate AI conservation notes.',
-    imageUrl: '../public/wilddex-logo.png',
+    imageUrl: '/wilddex-logo.png',
     href: 'https://github.com/ManrajSingh6/wilddex',
     badges: ['Python', 'Typescript', 'Flask + Express', 'React', 'Docker'],
     tags: ['distributed-systems', 'full-stack', 'data-science']
@@ -124,9 +124,18 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
     title: 'SpendSaavy',
     description:
       'Developed a finance tracker app to analyze spending and expenditure. Allowed users to visualize financial data via interactive charts, and set trackable goals.',
-    imageUrl: '../public/spendsaavy-logo.png',
+    imageUrl: '/spendsaavy-logo.png',
     href: 'https://github.com/ManrajSingh6/spendsavvy',
     badges: ['Typescript', 'GraphQL', 'PostgreSQL', 'React', 'Docker'],
     tags: ['full-stack']
+  },
+  {
+    title: 'KNN Vehicle Identifier',
+    description:
+      'Developed a K-Nearest Neighbors (KNN) model to classify vehicles based on their performance specifications. Implemented data preprocessing, feature extraction, and model evaluation resulting in 94.6% accuracy.',
+    imageUrl: '/knn-model.jpg',
+    badges: ['Python', 'Machine Learning', 'Scikit-Learn', 'Pandas'],
+    tags: ['data-science'],
+    href: 'https://github.com/ManrajSingh6/Machine-Learning-Prediction-Model-KNN'
   }
 ]
