@@ -1,5 +1,6 @@
 import type { ExperienceEntry } from "./components/experience-card";
 import type { ExtracurricularEntry } from "./components/extracurricular-card";
+import type { ProjectEntry } from "./components/project-card";
 
 export const EXPERIENCE_DATA: readonly ExperienceEntry[] = [
   {
@@ -82,5 +83,55 @@ export const EXTRACURRICULAR_DATA: readonly ExtracurricularEntry[] = [
       date: new Date("2022-03-01"),
     },
     badges: ["Java", "Swing GUI"],
+  },
+];
+
+export const PROJECT_DATA: readonly ProjectEntry[] = [
+  {
+    title: "SpendViz - Small Business Finance Tracker",
+    description:
+      "Developed a finance tracker app to analyze user-uploaded bank statements for profit analysis. Actively used by 2 small businesses to reduce analysis times.",
+    imageUrl: "../public/spendviz-logo.png",
+    badges: ["Python", "Typescript", "GraphQL", "React", "AWS", "Docker"],
+  },
+  {
+    title: "Energy Storage System Health Forecasting - Capstone Project",
+    description:
+      "Developed a predictive maintenance tool for battery energy storage systems, utilizing time-series analysis and machine learning to forecast battery degradation. This data-driven solution allowed customers to bypass invasive testing procedures, and reduce site downtime.",
+    imageUrl: "../public/energytoolbase-logo.jpg",
+    badges: [
+      "Python",
+      "Typescript",
+      "GraphQL",
+      "React",
+      "Time Series Forecasting",
+      "Docker",
+      "LSTM",
+    ],
+  },
+
+  {
+    title: "Wilddex - Distributed Wildlife Observation",
+    description:
+      "Built a full-stack distributed web app containerized with Docker Compose. Consisting of API, ML inference, and DB services designed for high availability and fault tolerance. Used Redis with Redlock for distributed consistency, and integrated a custom CNN via Flask plus GPT APIs to classify wildlife photos and generate AI conservation notes.",
+    imageUrl: "../public/wilddex-logo.png",
+    href: "https://github.com/ManrajSingh6/wilddex",
+    badges: [
+      "Python",
+      "Typescript",
+      "Flask + Express",
+      "React",
+      "Docker",
+      "Machine Learning",
+      "Distributed Systems",
+    ],
+  },
+  {
+    title: "SpendSaavy",
+    description:
+      "Developed a finance tracker app to analyze spending and expenditure. Allowed users to visualize financial data via interactive charts, and set trackable goals.",
+    imageUrl: "../public/spendsaavy-logo.png",
+    href: "https://github.com/ManrajSingh6/spendsavvy",
+    badges: ["Typescript", "GraphQL", "PostgreSQL", "React", "Docker"],
   },
 ];
