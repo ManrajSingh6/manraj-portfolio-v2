@@ -32,7 +32,7 @@ export function ProjectContent(): JSX.Element {
   )
 
   return (
-    <div className='flex flex-col space-y-4'>
+    <div className='mt-2 flex flex-col space-y-4'>
       <TabsGroup
         tabs={tabs}
         toggledTab={toggledTab}

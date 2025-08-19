@@ -20,10 +20,8 @@ export function SelectorItem({
   return (
     <NavLink
       to={path}
-      className={`border-aqua text-aqua flex aspect-square h-full w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border bg-white transition-colors duration-300 ${
-        isActive
-          ? 'border-aqua'
-          : 'border-primary-text hover:border-primary-text'
+      className={`flex aspect-square h-full w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border bg-white transition-colors duration-300 ${
+        isActive ? 'border-aqua text-aqua' : 'hover:border-aqua border-gray-300'
       }`}
     >
       <span className={commonStyle}>{icon}</span>
