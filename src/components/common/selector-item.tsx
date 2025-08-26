@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 import { NavLink } from 'react-router-dom'
-import type { RouteType } from '../routes'
+import type { RouteType } from '../../routes'
 
 export interface SelectorItemProps {
   readonly isActive: boolean

@@ -1,8 +1,8 @@
 import { useState, type JSX } from 'react'
-import { PROJECT_DATA } from '../data'
-import { ProjectCard } from './project-card'
-import { Scrollable } from './scrollable'
-import { TabsGroup, type Tab } from './tabs-group'
+import { PROJECT_DATA } from '../../data'
+import { ProjectCard } from '../cards/project-card'
+import { Scrollable } from '../common/scrollable'
+import { type Tab, TabsGroup } from '../common/tabs-group'
 
 export type ProjectCategoryTab =
   | 'full-stack'

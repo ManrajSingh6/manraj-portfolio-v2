@@ -1,7 +1,7 @@
 import type { JSX } from 'react'
-import { BadgeContainer } from './badge'
+import { BadgeContainer } from '../common/badge'
 import { ExternalLink } from 'lucide-react'
-import type { ProjectCategoryTab } from './project-content'
+import type { ProjectCategoryTab } from '../content-sections/project-content'
 
 export interface ProjectEntry {
   readonly title: string

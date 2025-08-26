@@ -1,8 +1,8 @@
 import { useState, type JSX } from 'react'
-import { ExperienceCard } from './experience-card'
-import { EXPERIENCE_DATA, EXTRACURRICULAR_DATA } from '../data'
-import { ExtracurricularCard } from './extracurricular-card'
-import { TabsGroup, type Tab } from './tabs-group'
+import { EXPERIENCE_DATA, EXTRACURRICULAR_DATA } from '../../data'
+import { ExperienceCard } from '../cards/experience-card'
+import { ExtracurricularCard } from '../cards/extracurricular-card'
+import { type Tab, TabsGroup } from '../common/tabs-group'
 
 type ToggledTab = 'work' | 'extracurricular'
 

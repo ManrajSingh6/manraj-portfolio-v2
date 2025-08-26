@@ -1,12 +1,12 @@
 import type { JSX } from 'react'
-import { ROUTES, type RouteType } from '../routes'
+import { ROUTES, type RouteType } from '../../routes'
 import {
   BriefcaseBusiness,
   FolderOpenDot,
   MailPlus,
   SquareUser
 } from 'lucide-react'
-import { SelectorItem, type SelectorItemProps } from './selector-item'
+import { SelectorItem, type SelectorItemProps } from '../common/selector-item'
 
 interface ContentSelectorProps {
   readonly activePath: RouteType

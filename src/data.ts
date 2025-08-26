@@ -1,6 +1,6 @@
-import type { ExperienceEntry } from './components/experience-card'
-import type { ExtracurricularEntry } from './components/extracurricular-card'
-import type { ProjectEntry } from './components/project-card'
+import type { ExperienceEntry } from './components/cards/experience-card'
+import type { ExtracurricularEntry } from './components/cards/extracurricular-card'
+import type { ProjectEntry } from './components/cards/project-card'
 
 export const EXPERIENCE_DATA: readonly ExperienceEntry[] = [
   {

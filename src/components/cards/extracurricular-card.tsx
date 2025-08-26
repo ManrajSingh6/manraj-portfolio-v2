@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { formatDate } from '../utils/date'
+import { formatDate } from '../../utils/date'
 import { BaseEntryCard } from './base-entry-card'
 
 export interface ExtracurricularEntry {

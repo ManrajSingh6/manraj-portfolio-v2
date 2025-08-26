@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { BadgeContainer } from './badge'
+import { BadgeContainer } from '../common/badge'
 
 interface BaseEntryCardProps {
   title: string

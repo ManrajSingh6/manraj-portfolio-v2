@@ -1,9 +1,9 @@
 import type { JSX } from 'react'
-import { ROUTES, type RouteType } from '../routes'
+import { ROUTES, type RouteType } from '../../routes'
 import { AboutContent } from './about-content'
 import { ExperienceContent } from './experience-content'
-import { ProjectContent } from './project-content'
 import { ContactContent } from './contact-content'
+import { ProjectContent } from './project-content'
 
 interface ContentPaneProps {
   readonly activePath: RouteType

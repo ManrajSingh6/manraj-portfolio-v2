@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { SocialsContainer } from './socials-container'
+import { SocialsContainer } from '../common/socials-container'
 
 export function ContactContent(): JSX.Element {
   return (

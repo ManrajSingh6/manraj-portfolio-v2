@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import { ContentPane } from './components/content-pane'
-import { ContentSelector } from './components/content-selector'
+import { ContentPane } from './components/content-sections/content-pane'
+import { ContentSelector } from './components/content-sections/content-selector'
 import { isValidRoute, ROUTES, type RouteType } from './routes'
-import { SocialsContainer } from './components/socials-container'
+import { SocialsContainer } from './components/common/socials-container'
 import { useEffect, useRef } from 'react'
-import { Footer } from './components/footer'
+import { Footer } from './components/common/footer'
 
 const GLOW_SIZE = 1500
 

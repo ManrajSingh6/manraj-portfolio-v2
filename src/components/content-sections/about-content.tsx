@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { HighlightedText } from './highlighted-text'
+import { HighlightedText } from '../common/highlighted-text'
 
 export function AboutContent(): JSX.Element {
   return (
