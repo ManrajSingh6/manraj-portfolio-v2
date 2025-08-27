@@ -4,29 +4,14 @@ import { ContentPane } from './components/content-sections/content-pane'
 import { ContentSelector } from './components/content-sections/content-selector'
 import { isValidRoute, ROUTES, type RouteType } from './routes'
 import { SocialsContainer } from './components/common/socials-container'
-import { useEffect, useRef } from 'react'
 import { Footer } from './components/common/footer'
+import { useMouseGlow } from './hooks/useMouseGlow'
 
 const GLOW_SIZE = 1500
 
 function App() {
   const location = useLocation()
-  const glowRef = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    const currentRef = glowRef.current
-
-    function handleMouseEvent(e: MouseEvent) {
-      if (!currentRef) {
-        return
-      }
-      currentRef.style.left = `${e.clientX}px`
-      currentRef.style.top = `${e.clientY}px`
-    }
-
-    window.addEventListener('mousemove', handleMouseEvent, { passive: true })
-    return () => window.removeEventListener('mousemove', handleMouseEvent)
-  }, [])
+  const { glowRef } = useMouseGlow()
 
   const activePath = location.pathname as RouteType
 
