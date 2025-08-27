@@ -1,4 +1,5 @@
 import type { JSX } from 'react'
+import { motion } from 'framer-motion'
 
 export interface Tab<T> {
   readonly label: string
@@ -19,15 +20,29 @@ export function TabsGroup<T>({
   return (
     <div className='flex items-center gap-2'>
       {tabs.map((tab, idx) => (
-        <button
+        <motion.button
           key={idx}
           onClick={() => setToggledTab(tab.value)}
-          className={`text-primary-text cursor-pointer px-4 py-2 text-sm font-medium uppercase ${
-            toggledTab === tab.value ? 'border-aqua border-b' : ''
+          className={`text-primary-text relative cursor-pointer px-4 py-2 text-sm font-medium uppercase transition-colors duration-200 ${
+            toggledTab === tab.value ? 'text-aqua' : 'hover:text-aqua'
           }`}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           {tab.label}
-        </button>
+          {toggledTab === tab.value && (
+            <motion.div
+              className='bg-aqua absolute right-0 bottom-0 left-0 h-0.5'
+              layoutId='activeTab'
+              initial={false}
+              transition={{
+                type: 'spring',
+                stiffness: 500,
+                damping: 30
+              }}
+            />
+          )}
+        </motion.button>
       ))}
     </div>
   )

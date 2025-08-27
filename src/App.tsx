@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { ContentPane } from './components/content-sections/content-pane'
 import { ContentSelector } from './components/content-sections/content-selector'
 import { isValidRoute, ROUTES, type RouteType } from './routes'
@@ -35,9 +36,9 @@ function App() {
 
   const routeContent = (
     <div className='bg-app-bg relative flex h-screen flex-col overflow-hidden'>
-      <div
+      <motion.div
         ref={glowRef}
-        className='pointer-events-none fixed z-0 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-90 blur-[22px] will-change-transform'
+        className='pointer-events-none fixed z-0 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-90 blur-[22px]'
         style={{
           width: GLOW_SIZE,
           height: GLOW_SIZE,
@@ -47,20 +48,38 @@ function App() {
             rgba(255,255,255,0) 62%       /* smooth fade */
           )`
         }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.9, scale: 1 }}
+        transition={{ duration: 1, ease: 'easeOut' }}
       />
       {/* Main content */}
       {activePath !== '/contact' && (
-        <div className='fixed top-4 left-1/2 z-50 -translate-x-1/2 transform'>
+        <motion.div
+          className='fixed top-4 left-1/2 z-50 -translate-x-1/2 transform'
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
+        >
           <SocialsContainer />
-        </div>
+        </motion.div>
       )}
-      <div className='relative z-10 flex h-screen items-center justify-center space-x-20 overflow-hidden px-24'>
+      <motion.div
+        className='relative z-10 flex h-screen items-center justify-center space-x-20 overflow-hidden px-24'
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1, duration: 0.8, ease: 'easeOut' }}
+      >
         <ContentPane activePath={activePath} />
         <ContentSelector activePath={activePath} />
-      </div>
-      <div className='fixed bottom-4 left-1/2 z-50 -translate-x-1/2 transform'>
+      </motion.div>
+      <motion.div
+        className='fixed bottom-4 left-1/2 z-50 -translate-x-1/2 transform'
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
+      >
         <Footer />
-      </div>
+      </motion.div>
     </div>
   )
 

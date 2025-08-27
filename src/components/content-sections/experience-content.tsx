@@ -1,10 +1,35 @@
 import { useState, type JSX } from 'react'
+import { motion, AnimatePresence, spring } from 'framer-motion'
 import { EXPERIENCE_DATA, EXTRACURRICULAR_DATA } from '../../data'
 import { ExperienceCard } from '../cards/experience-card'
 import { ExtracurricularCard } from '../cards/extracurricular-card'
 import { type Tab, TabsGroup } from '../common/tabs-group'
 
 type ToggledTab = 'work' | 'extracurricular'
+
+const CONTAINER_VARIANTS = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.1,
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const ITEM_VARIANTS = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: spring,
+      stiffness: 300,
+      damping: 24
+    }
+  }
+}
 
 export function ExperienceContent(): JSX.Element {
   const [toggledTab, setToggledTab] = useState<ToggledTab>('work')
@@ -24,13 +49,35 @@ export function ExperienceContent(): JSX.Element {
   function getContentForTab(): React.ReactNode {
     switch (toggledTab) {
       case 'work':
-        return EXPERIENCE_DATA.map((experience, idx) => (
-          <ExperienceCard key={idx} experience={experience} />
-        ))
+        return (
+          <motion.div
+            variants={CONTAINER_VARIANTS}
+            initial='hidden'
+            animate='visible'
+            className='flex flex-col space-y-4'
+          >
+            {EXPERIENCE_DATA.map((experience, idx) => (
+              <motion.div key={idx} variants={ITEM_VARIANTS}>
+                <ExperienceCard experience={experience} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )
       case 'extracurricular':
-        return EXTRACURRICULAR_DATA.map((extracurricular, idx) => (
-          <ExtracurricularCard key={idx} extracurricular={extracurricular} />
-        ))
+        return (
+          <motion.div
+            variants={CONTAINER_VARIANTS}
+            initial='hidden'
+            animate='visible'
+            className='flex flex-col space-y-4'
+          >
+            {EXTRACURRICULAR_DATA.map((extracurricular, idx) => (
+              <motion.div key={idx} variants={ITEM_VARIANTS}>
+                <ExtracurricularCard extracurricular={extracurricular} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )
     }
   }
 
@@ -41,7 +88,9 @@ export function ExperienceContent(): JSX.Element {
         toggledTab={toggledTab}
         setToggledTab={setToggledTab}
       />
-      {getContentForTab()}
+      <AnimatePresence mode='wait'>
+        <motion.div key={toggledTab}>{getContentForTab()}</motion.div>
+      </AnimatePresence>
     </div>
   )
 }
