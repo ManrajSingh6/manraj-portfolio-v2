@@ -6,7 +6,7 @@ export function Scrollable({
   children: React.ReactNode
 }): JSX.Element {
   return (
-    <div className='relative max-h-[80vh] overflow-y-auto overscroll-contain [mask-image:linear-gradient(to_bottom,transparent,black_16px,black_calc(100%-16px),transparent)] pb-2 [-ms-overflow-style:none] [scrollbar-width:none] focus-visible:outline-none [&::-webkit-scrollbar]:h-0 [&::-webkit-scrollbar]:w-0'>
+    <div className='relative max-h-[80vh] overflow-y-auto overscroll-contain [mask-image:linear-gradient(to_bottom,transparent,black_16px,black_calc(100%-16px),transparent)] pb-0 [-ms-overflow-style:none] [scrollbar-width:none] focus-visible:outline-none [&::-webkit-scrollbar]:h-0 [&::-webkit-scrollbar]:w-0'>
       {children}
     </div>
   )

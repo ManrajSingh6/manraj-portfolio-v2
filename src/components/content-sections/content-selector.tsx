@@ -9,9 +9,12 @@ import {
 } from 'lucide-react'
 import { SelectorItem, type SelectorItemProps } from '../common/selector-item'
 
-const ICON_STYLE = 'h-8 w-8'
+const ICON_STYLE = 'h-6 w-6'
 
-const CONTENT_SELECTOR_ITEMS: readonly Omit<SelectorItemProps, 'isActive'>[] = [
+const CONTENT_SELECTOR_ITEMS: readonly Omit<
+  SelectorItemProps,
+  'isActive' | 'isMobile'
+>[] = [
   {
     path: ROUTES.ABOUT,
     icon: <SquareUser className={ICON_STYLE} />,
@@ -61,14 +64,20 @@ const ITEM_VARIANTS = {
 
 interface ContentSelectorProps {
   readonly activePath: RouteType
+  readonly isMobile: boolean
 }
 
 export function ContentSelector({
-  activePath
+  activePath,
+  isMobile
 }: ContentSelectorProps): JSX.Element {
+  const styles = isMobile
+    ? 'flex items-center justify-between gap-4 m-auto text-sm bg-white p-2 shadow-lg rounded-full fixed top-4 left-1/2 -translate-x-1/2 z-50'
+    : 'grid aspect-square max-w-md  grid-cols-2 grid-rows-2 gap-8'
+
   return (
     <motion.div
-      className='grid aspect-square max-w-md flex-1 grid-cols-2 grid-rows-2 gap-8'
+      className={styles}
       variants={CONTAINER_VARIANTS}
       initial='hidden'
       animate='visible'
@@ -83,6 +92,7 @@ export function ContentSelector({
             icon={item.icon}
             label={item.label}
             isActive={item.path === activePath}
+            isMobile={isMobile}
           />
         </motion.div>
       ))}

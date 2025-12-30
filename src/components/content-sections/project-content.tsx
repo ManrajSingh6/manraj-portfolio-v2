@@ -9,6 +9,7 @@ export type ProjectCategoryTab =
   | 'full-stack'
   | 'data-science'
   | 'distributed-systems'
+  | 'AI'
 
 const CONTAINER_VARIANTS = {
   hidden: { opacity: 0 },
@@ -49,6 +50,10 @@ export function ProjectContent(): JSX.Element {
     {
       label: 'Distributed Systems',
       value: 'distributed-systems'
+    },
+    {
+      label: 'AI Agents',
+      value: 'AI'
     }
   ]
 

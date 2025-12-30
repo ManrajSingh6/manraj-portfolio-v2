@@ -21,9 +21,6 @@ export function AboutContent(): JSX.Element {
         <HighlightedText>outdoors</HighlightedText> or{' '}
         <HighlightedText>producing music.</HighlightedText>
       </p>
-      <button className='bg-aqua text-app-bg w-fit cursor-pointer rounded-sm p-4'>
-        View My Resume
-      </button>
     </div>
   )
 }

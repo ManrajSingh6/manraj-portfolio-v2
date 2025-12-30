@@ -8,17 +8,22 @@ export interface SelectorItemProps {
   readonly path: RouteType
   readonly icon: JSX.Element
   readonly label: string
+  readonly isMobile: boolean
 }
 
 export function SelectorItem({
   isActive,
   path,
   icon,
-  label
+  label,
+  isMobile
 }: SelectorItemProps): JSX.Element {
   const commonStyle = isActive
     ? 'border-aqua text-aqua'
     : 'hover:border-aqua border-gray-300 hover:text-aqua'
+
+  const borderStyle = isMobile ? 'rounded-full! p-2' : 'rounded-lg'
+  const consolidatedStyle = `${commonStyle} ${borderStyle}`
 
   return (
     <motion.div
@@ -34,20 +39,19 @@ export function SelectorItem({
         stiffness: 400,
         damping: 25
       }}
-      className='h-full w-full'
+      className='rounded-full'
     >
       <NavLink
         to={path}
-        className={`flex aspect-square h-full w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border bg-white transition-colors duration-300 ${commonStyle}`}
+        className={`flex aspect-square h-full w-full cursor-pointer flex-col items-center justify-center gap-4 border bg-white transition-colors duration-300 ${consolidatedStyle}`}
       >
         <motion.span
-          className={commonStyle}
           whileHover={{ scale: 1.1 }}
           transition={{ type: 'spring', stiffness: 400, damping: 25 }}
         >
           {icon}
         </motion.span>
-        <span className={commonStyle}>{label}</span>
+        {!isMobile && <span>{label}</span>}
       </NavLink>
     </motion.div>
   )

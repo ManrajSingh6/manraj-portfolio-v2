@@ -21,9 +21,12 @@ export function BaseEntryCard({
   return (
     <div className='text-primary-text border-aqua/20 hover:border-aqua/40 flex max-w-4xl flex-col space-y-2 border-b p-4 transition md:p-6'>
       <div className='flex items-center justify-between'>
-        <p className='inline-flex items-center tracking-wide'>
+        <p className='inline-flex items-center text-xs tracking-wide sm:text-sm'>
           <span className='font-semibold'>{title}</span>
-          <span aria-hidden='true' className='text-aqua/70 mx-2 font-semibold'>
+          <span
+            aria-hidden='true'
+            className='text-aqua/70 mx-2 hidden font-semibold sm:inline'
+          >
             ·
           </span>
           {href ? (
@@ -41,7 +44,7 @@ export function BaseEntryCard({
         </p>
         <p className='text-aqua text-xs uppercase sm:text-sm'>{dateText}</p>
       </div>
-      <p className='text-primary-text/90 mb-4 text-sm leading-6'>
+      <p className='text-primary-text/90 mb-4 text-xs leading-6 sm:text-sm'>
         {description}
       </p>
       <BadgeContainer badges={badges} />

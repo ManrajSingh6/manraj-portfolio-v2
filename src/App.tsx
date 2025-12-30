@@ -6,12 +6,14 @@ import { isValidRoute, ROUTES, type RouteType } from './routes'
 import { SocialsContainer } from './components/common/socials-container'
 import { Footer } from './components/common/footer'
 import { useMouseGlow } from './hooks/useMouseGlow'
+import { useIsMobile } from './hooks/useIsMobile'
 
 const GLOW_SIZE = 1500
 
 function App() {
   const location = useLocation()
   const { glowRef } = useMouseGlow()
+  const isMobile = useIsMobile()
 
   const activePath = location.pathname as RouteType
 
@@ -40,7 +42,7 @@ function App() {
       {/* Main content */}
       {activePath !== '/contact' && (
         <motion.div
-          className='fixed top-4 left-1/2 z-50 -translate-x-1/2 transform'
+          className='fixed top-4 left-1/2 z-50 hidden -translate-x-1/2 transform sm:block'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
@@ -49,16 +51,22 @@ function App() {
         </motion.div>
       )}
       <motion.div
-        className='relative z-10 flex h-screen items-center justify-center space-x-20 overflow-hidden px-24'
+        className='relative z-10 flex h-screen items-center justify-center overflow-hidden px-4 sm:px-8 md:px-16 lg:px-24'
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.1, duration: 0.8, ease: 'easeOut' }}
       >
-        <ContentPane activePath={activePath} />
-        <ContentSelector activePath={activePath} />
+        <div className='flex w-full max-w-7xl flex-col items-center justify-center gap-16 lg:flex-row lg:gap-20'>
+          <div className='order-2 w-full lg:order-1 lg:flex-1'>
+            <ContentPane activePath={activePath} />
+          </div>
+          <div className='order-1 w-full max-w-sm sm:max-w-md md:mt-0 lg:order-2 lg:flex-1'>
+            <ContentSelector activePath={activePath} isMobile={isMobile} />
+          </div>
+        </div>
       </motion.div>
       <motion.div
-        className='fixed bottom-4 left-1/2 z-50 -translate-x-1/2 transform'
+        className='fixed bottom-4 left-1/2 z-50 hidden -translate-x-1/2 transform sm:block'
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}

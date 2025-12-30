@@ -4,6 +4,7 @@ import { EXPERIENCE_DATA, EXTRACURRICULAR_DATA } from '../../data'
 import { ExperienceCard } from '../cards/experience-card'
 import { ExtracurricularCard } from '../cards/extracurricular-card'
 import { type Tab, TabsGroup } from '../common/tabs-group'
+import { Scrollable } from '../common/scrollable'
 
 type ToggledTab = 'work' | 'extracurricular'
 
@@ -49,35 +50,17 @@ export function ExperienceContent(): JSX.Element {
   function getContentForTab(): React.ReactNode {
     switch (toggledTab) {
       case 'work':
-        return (
-          <motion.div
-            variants={CONTAINER_VARIANTS}
-            initial='hidden'
-            animate='visible'
-            className='flex flex-col space-y-4'
-          >
-            {EXPERIENCE_DATA.map((experience, idx) => (
-              <motion.div key={idx} variants={ITEM_VARIANTS}>
-                <ExperienceCard experience={experience} />
-              </motion.div>
-            ))}
+        return EXPERIENCE_DATA.map((experience, idx) => (
+          <motion.div key={idx} variants={ITEM_VARIANTS}>
+            <ExperienceCard experience={experience} />
           </motion.div>
-        )
+        ))
       case 'extracurricular':
-        return (
-          <motion.div
-            variants={CONTAINER_VARIANTS}
-            initial='hidden'
-            animate='visible'
-            className='flex flex-col space-y-4'
-          >
-            {EXTRACURRICULAR_DATA.map((extracurricular, idx) => (
-              <motion.div key={idx} variants={ITEM_VARIANTS}>
-                <ExtracurricularCard extracurricular={extracurricular} />
-              </motion.div>
-            ))}
+        return EXTRACURRICULAR_DATA.map((extracurricular, idx) => (
+          <motion.div key={idx} variants={ITEM_VARIANTS}>
+            <ExtracurricularCard extracurricular={extracurricular} />
           </motion.div>
-        )
+        ))
     }
   }
 
@@ -89,7 +72,15 @@ export function ExperienceContent(): JSX.Element {
         setToggledTab={setToggledTab}
       />
       <AnimatePresence mode='wait'>
-        <motion.div key={toggledTab}>{getContentForTab()}</motion.div>
+        <motion.div
+          variants={CONTAINER_VARIANTS}
+          initial='hidden'
+          animate='visible'
+          className='flex flex-col space-y-4'
+          key={toggledTab}
+        >
+          <Scrollable>{getContentForTab()}</Scrollable>
+        </motion.div>
       </AnimatePresence>
     </div>
   )
