@@ -92,7 +92,10 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
     description:
       'Developed a finance tracker app to analyze user-uploaded bank statements for profit analysis. Actively used by 2 small businesses to reduce analysis times.',
     imageUrl: '/spendviz-logo.png',
-    badges: ['Python', 'Typescript', 'GraphQL', 'React', 'AWS', 'Docker'],
+    badges: {
+      primary: ['FinTech', 'Productized SaaS'],
+      secondary: ['Python', 'Typescript', 'GraphQL', 'React', 'AWS', 'Docker']
+    },
     tags: ['full-stack']
   },
   {
@@ -100,15 +103,18 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
     description:
       'Developed a predictive maintenance tool for battery energy storage systems, utilizing time-series analysis and machine learning to forecast battery degradation. This data-driven solution allowed customers to bypass invasive testing procedures, and reduce site downtime.',
     imageUrl: '/energytoolbase-logo.jpg',
-    badges: [
-      'Python',
-      'Typescript',
-      'GraphQL',
-      'React',
-      'Time Series Forecasting',
-      'Docker',
-      'LSTM'
-    ],
+    badges: {
+      primary: ['Time Series Forecasting', 'Predictive Maintenance'],
+      secondary: [
+        'Python',
+        'Typescript',
+        'GraphQL',
+        'React',
+        'Time Series Forecasting',
+        'Docker',
+        'LSTM'
+      ]
+    },
     tags: ['data-science']
   },
   {
@@ -117,14 +123,17 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
       'Built a full-stack distributed web app containerized with Docker Compose. Consisting of API, ML inference, and DB services designed for high availability and fault tolerance. Used Redis with Redlock for distributed consistency, and integrated a custom CNN via Flask plus GPT APIs to classify wildlife photos and generate AI conservation notes.',
     imageUrl: '/wilddex-logo.png',
     href: 'https://github.com/ManrajSingh6/wilddex',
-    badges: [
-      'Python',
-      'Typescript',
-      'Flask + Express',
-      'React',
-      'Docker',
-      'Machine Learning (CNN)'
-    ],
+    badges: {
+      primary: ['Distributed Systems', 'Service Orchestration'],
+      secondary: [
+        'Python',
+        'Typescript',
+        'Flask + Express',
+        'React',
+        'Docker',
+        'Machine Learning (CNN)'
+      ]
+    },
     tags: ['distributed-systems']
   },
   {
@@ -133,7 +142,10 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
       'Developed a finance tracker app to analyze spending and expenditure. Allowed users to visualize financial data via interactive charts, and set trackable goals.',
     imageUrl: '/spendsaavy-logo.png',
     href: 'https://github.com/ManrajSingh6/spendsavvy',
-    badges: ['Typescript', 'GraphQL', 'PostgreSQL', 'React', 'Docker'],
+    badges: {
+      primary: ['FinTech'],
+      secondary: ['Typescript', 'GraphQL', 'PostgreSQL', 'React', 'Docker']
+    },
     tags: ['full-stack']
   },
   {
@@ -141,7 +153,10 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
     description:
       'Developed a K-Nearest Neighbors (KNN) model to classify vehicles based on their performance specifications. Implemented data preprocessing, feature extraction, and model evaluation resulting in 94.6% accuracy.',
     imageUrl: '/knn-model.jpg',
-    badges: ['Python', 'Machine Learning', 'Scikit-Learn', 'Pandas'],
+    badges: {
+      primary: ['Classical Machine Learning'],
+      secondary: ['Python', 'Machine Learning', 'Scikit-Learn', 'Pandas']
+    },
     tags: ['data-science'],
     href: 'https://github.com/ManrajSingh6/Machine-Learning-Prediction-Model-KNN'
   },
@@ -150,7 +165,10 @@ export const PROJECT_DATA: readonly ProjectEntry[] = [
     description:
       'Developed an AI agent that translates natural language queries into SQL queries, enabling users to interact with databases more intuitively.',
     imageUrl: '/talk2Sql-logo.jpeg',
-    badges: ['Python', 'Langchain', 'Ollama', 'Express', 'React', 'Docker'],
+    badges: {
+      primary: ['LLM Agent'],
+      secondary: ['Python', 'Langchain', 'Ollama', 'Express', 'React', 'Docker']
+    },
     tags: ['AI'],
     href: 'https://github.com/ManrajSingh6/talk2sql'
   }

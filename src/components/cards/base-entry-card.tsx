@@ -47,7 +47,7 @@ export function BaseEntryCard({
       <p className='text-primary-text/90 mb-4 text-xs leading-6 sm:text-sm'>
         {description}
       </p>
-      <BadgeContainer badges={badges} />
+      <BadgeContainer badges={badges} variant={'primary'} />
     </div>
   )
 }

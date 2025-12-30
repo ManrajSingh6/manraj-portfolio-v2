@@ -8,7 +8,10 @@ export interface ProjectEntry {
   readonly description: string
   readonly imageUrl: string
   readonly href?: string
-  readonly badges: readonly string[]
+  readonly badges: {
+    readonly primary: readonly string[]
+    readonly secondary: readonly string[]
+  }
   readonly tags: readonly ProjectCategoryTab[]
 }
 
@@ -40,7 +43,11 @@ export function ProjectCard({ project }: ProjectCardProps): JSX.Element {
           <p className='text-primary-text/90 text-sm leading-6'>
             {project.description}
           </p>
-          <BadgeContainer badges={project.badges} />
+          <BadgeContainer badges={project.badges.primary} variant='primary' />
+          <BadgeContainer
+            badges={project.badges.secondary}
+            variant='secondary'
+          />
         </div>
         <div className='md:w-56 md:shrink-0'>
           <div className='ring-aqua/20 bg-deep-blue/5 relative h-40 w-full overflow-hidden rounded-lg ring-1 md:h-36'>
