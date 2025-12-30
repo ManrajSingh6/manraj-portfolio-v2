@@ -9,7 +9,8 @@ function Badge({
   badge: string
   variant: BadgeVariant
 }): JSX.Element {
-  const base = 'inline-block rounded-full px-2 py-1 text-xs ring-1 transition'
+  const base =
+    'inline-block rounded-full px-2 py-1 text-[11px] ring-1 transition sm:text-xs'
 
   const styles: Record<BadgeVariant, string> = {
     primary: 'bg-aqua/10 text-aqua ring-aqua/40 hover:ring-aqua/70',

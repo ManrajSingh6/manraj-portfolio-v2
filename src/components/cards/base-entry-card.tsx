@@ -19,14 +19,11 @@ export function BaseEntryCard({
   badges
 }: BaseEntryCardProps): JSX.Element {
   return (
-    <div className='text-primary-text border-aqua/20 hover:border-aqua/40 flex max-w-4xl flex-col space-y-2 border-b p-4 transition md:p-6'>
-      <div className='flex items-center justify-between'>
-        <p className='inline-flex items-center text-xs tracking-wide sm:text-sm'>
+    <div className='text-primary-text border-aqua/20 hover:border-aqua/40 flex max-w-4xl flex-col space-y-2 border-b p-3 transition sm:p-4 md:p-6'>
+      <div className='flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-0'>
+        <p className='inline-flex flex-wrap items-center gap-1 text-xs tracking-wide sm:gap-0 sm:text-sm'>
           <span className='font-semibold'>{title}</span>
-          <span
-            aria-hidden='true'
-            className='text-aqua/70 mx-2 hidden font-semibold sm:inline'
-          >
+          <span aria-hidden='true' className='text-aqua/70 mx-2 font-semibold'>
             ·
           </span>
           {href ? (
@@ -42,7 +39,9 @@ export function BaseEntryCard({
             <span className='text-aqua font-medium'>{subtitle}</span>
           )}
         </p>
-        <p className='text-aqua text-xs uppercase sm:text-sm'>{dateText}</p>
+        <p className='text-aqua text-xs tracking-wide uppercase sm:text-sm'>
+          {dateText}
+        </p>
       </div>
       <p className='text-primary-text/90 mb-4 text-xs leading-6 sm:text-sm'>
         {description}
