@@ -44,7 +44,7 @@ export function ProjectContent(): JSX.Element {
       value: 'full-stack'
     },
     {
-      label: 'Data Science/Machine Learning',
+      label: 'Data Science',
       value: 'data-science'
     },
     {
@@ -62,7 +62,7 @@ export function ProjectContent(): JSX.Element {
   )
 
   return (
-    <div className='mt-2 flex flex-col space-y-4'>
+    <div className='flex flex-col space-y-2 sm:space-y-4'>
       <TabsGroup
         tabs={tabs}
         toggledTab={toggledTab}
@@ -72,7 +72,7 @@ export function ProjectContent(): JSX.Element {
         <motion.div key={toggledTab}>
           <Scrollable>
             <motion.div
-              className='flex flex-col space-y-4'
+              className='flex flex-col space-y-2 sm:space-y-4'
               variants={CONTAINER_VARIANTS}
               initial='hidden'
               animate='visible'

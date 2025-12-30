@@ -18,12 +18,12 @@ export function TabsGroup<T>({
   setToggledTab
 }: TabsGroupProps<T>): JSX.Element {
   return (
-    <div className='flex items-center gap-1 sm:gap-2'>
+    <div className='flex flex-wrap items-center gap-1 sm:gap-2'>
       {tabs.map((tab, idx) => (
         <motion.button
           key={idx}
           onClick={() => setToggledTab(tab.value)}
-          className={`text-primary-text relative cursor-pointer px-4 py-2 text-xs font-medium uppercase transition-colors duration-200 sm:text-sm ${
+          className={`text-primary-text relative cursor-pointer px-3 py-2 text-xs font-medium uppercase transition-colors duration-200 sm:px-4 sm:py-2 sm:text-sm md:text-sm ${
             toggledTab === tab.value ? 'text-aqua' : 'hover:text-aqua'
           }`}
           whileHover={{ scale: 1.05 }}

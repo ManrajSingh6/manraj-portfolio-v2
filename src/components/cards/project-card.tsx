@@ -37,10 +37,10 @@ export function ProjectCard({ project }: ProjectCardProps): JSX.Element {
 
   return (
     <div className='text-primary-text border-aqua/20 hover:border-aqua/40 max-w-4xl overflow-hidden border-b transition'>
-      <div className='grid grid-cols-1 gap-10 p-4 md:grid-cols-[1fr_auto] md:p-6'>
-        <div className='flex flex-col gap-4'>
+      <div className='grid grid-cols-1 gap-6 p-3 sm:gap-8 sm:p-4 md:grid-cols-[1fr_auto] md:gap-10 md:p-6'>
+        <div className='flex flex-col gap-3 sm:gap-4'>
           {titleElement}
-          <p className='text-primary-text/90 text-sm leading-6'>
+          <p className='text-primary-text/90 text-xs leading-5 sm:text-sm sm:leading-6'>
             {project.description}
           </p>
           <BadgeContainer badges={project.badges.primary} variant='primary' />
@@ -50,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps): JSX.Element {
           />
         </div>
         <div className='md:w-56 md:shrink-0'>
-          <div className='ring-aqua/20 bg-deep-blue/5 relative h-40 w-full overflow-hidden rounded-lg ring-1 md:h-36'>
+          <div className='ring-aqua/20 bg-deep-blue/5 relative h-24 w-full overflow-hidden rounded-lg ring-1 sm:h-40 md:h-36'>
             <img
               src={project.imageUrl}
               alt={`${project.title} preview`}
@@ -59,7 +59,7 @@ export function ProjectCard({ project }: ProjectCardProps): JSX.Element {
               width={224} // matches md:w-56
               height={144} // matches md:h-36
               sizes='(min-width: 768px) 224px, 100vw'
-              className='absolute inset-0 h-full w-full bg-white object-cover transition-transform duration-300 hover:scale-[1.02]'
+              className='absolute inset-0 h-full w-full bg-white object-cover object-center transition-transform duration-300 hover:scale-[1.02]'
             />
           </div>
         </div>

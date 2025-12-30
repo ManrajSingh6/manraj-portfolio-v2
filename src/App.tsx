@@ -9,6 +9,7 @@ import { useMouseGlow } from './hooks/useMouseGlow'
 import { useIsMobile } from './hooks/useIsMobile'
 
 const GLOW_SIZE = 1500
+const MOBILE_GLOW_SIZE = 800
 
 function App() {
   const location = useLocation()
@@ -27,8 +28,8 @@ function App() {
         ref={glowRef}
         className='pointer-events-none fixed z-0 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-90 blur-[22px]'
         style={{
-          width: GLOW_SIZE,
-          height: GLOW_SIZE,
+          width: isMobile ? MOBILE_GLOW_SIZE : GLOW_SIZE,
+          height: isMobile ? MOBILE_GLOW_SIZE : GLOW_SIZE,
           background: `radial-gradient(closest-side,
             rgba(125, 211, 252, 0.1),   /* aqua blue core */
             rgba(45, 212, 191, 0.05) 28%, /* teal mid */
@@ -40,9 +41,9 @@ function App() {
         transition={{ duration: 1, ease: 'easeOut' }}
       />
       {/* Main content */}
-      {activePath !== '/contact' && (
+      {activePath !== '/contact' && !isMobile && (
         <motion.div
-          className='fixed top-4 left-1/2 z-50 hidden -translate-x-1/2 transform sm:block'
+          className='fixed top-4 left-1/2 z-50 -translate-x-1/2 transform'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
@@ -51,12 +52,12 @@ function App() {
         </motion.div>
       )}
       <motion.div
-        className='relative z-10 flex h-screen items-center justify-center overflow-hidden px-4 sm:px-8 md:px-16 lg:px-24'
+        className='relative z-10 flex h-screen items-center justify-center overflow-hidden px-3 pt-2 pb-2 sm:px-8 sm:py-0 md:px-16 lg:px-24'
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.1, duration: 0.8, ease: 'easeOut' }}
       >
-        <div className='flex w-full max-w-7xl flex-col items-center justify-center gap-16 lg:flex-row lg:gap-20'>
+        <div className='flex w-full max-w-7xl flex-col items-center justify-center gap-4 sm:gap-16 lg:flex-row lg:gap-20'>
           <div className='order-2 w-full lg:order-1 lg:flex-1'>
             <ContentPane activePath={activePath} />
           </div>
@@ -65,14 +66,16 @@ function App() {
           </div>
         </div>
       </motion.div>
-      <motion.div
-        className='fixed bottom-4 left-1/2 z-50 hidden -translate-x-1/2 transform sm:block'
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
-      >
-        <Footer />
-      </motion.div>
+      {!isMobile && (
+        <motion.div
+          className='fixed bottom-4 left-1/2 z-50 -translate-x-1/2 transform'
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
+        >
+          <Footer />
+        </motion.div>
+      )}
     </div>
   )
 
