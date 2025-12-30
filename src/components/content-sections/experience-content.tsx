@@ -65,7 +65,7 @@ export function ExperienceContent(): JSX.Element {
   }
 
   return (
-    <div className='flex flex-col space-y-4'>
+    <div className='flex flex-col space-y-2 sm:space-y-4'>
       <TabsGroup
         tabs={tabs}
         toggledTab={toggledTab}
@@ -76,7 +76,7 @@ export function ExperienceContent(): JSX.Element {
           variants={CONTAINER_VARIANTS}
           initial='hidden'
           animate='visible'
-          className='flex flex-col space-y-4'
+          className='flex flex-col space-y-2 sm:space-y-4'
           key={toggledTab}
         >
           <Scrollable>{getContentForTab()}</Scrollable>

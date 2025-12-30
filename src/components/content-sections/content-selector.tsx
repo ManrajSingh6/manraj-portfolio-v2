@@ -10,32 +10,35 @@ import {
 import { SelectorItem, type SelectorItemProps } from '../common/selector-item'
 
 const ICON_STYLE = 'h-6 w-6'
+const MOBILE_ICON_STYLE = 'h-5 w-5'
 
-const CONTENT_SELECTOR_ITEMS: readonly Omit<
-  SelectorItemProps,
-  'isActive' | 'isMobile'
->[] = [
-  {
-    path: ROUTES.ABOUT,
-    icon: <SquareUser className={ICON_STYLE} />,
-    label: 'About'
-  },
-  {
-    path: ROUTES.EXPERIENCE,
-    icon: <BriefcaseBusiness className={ICON_STYLE} />,
-    label: 'Experience'
-  },
-  {
-    path: ROUTES.PROJECTS,
-    icon: <FolderOpenDot className={ICON_STYLE} />,
-    label: 'Projects'
-  },
-  {
-    path: ROUTES.CONTACT,
-    icon: <MailPlus className={ICON_STYLE} />,
-    label: 'Contact'
-  }
-]
+function getContentSelectorItems(
+  isMobile: boolean
+): readonly Omit<SelectorItemProps, 'isActive' | 'isMobile'>[] {
+  const iconStyle = isMobile ? MOBILE_ICON_STYLE : ICON_STYLE
+  return [
+    {
+      path: ROUTES.ABOUT,
+      icon: <SquareUser className={iconStyle} />,
+      label: 'About'
+    },
+    {
+      path: ROUTES.EXPERIENCE,
+      icon: <BriefcaseBusiness className={iconStyle} />,
+      label: 'Experience'
+    },
+    {
+      path: ROUTES.PROJECTS,
+      icon: <FolderOpenDot className={iconStyle} />,
+      label: 'Projects'
+    },
+    {
+      path: ROUTES.CONTACT,
+      icon: <MailPlus className={iconStyle} />,
+      label: 'Contact'
+    }
+  ]
+}
 
 const CONTAINER_VARIANTS = {
   hidden: { opacity: 0 },
@@ -72,7 +75,7 @@ export function ContentSelector({
   isMobile
 }: ContentSelectorProps): JSX.Element {
   const styles = isMobile
-    ? 'flex items-center justify-between gap-4 m-auto text-sm bg-white p-2 shadow-lg rounded-full fixed top-4 left-1/2 -translate-x-1/2 z-50'
+    ? 'flex items-center justify-center gap-3 m-auto text-sm bg-white/80 backdrop-blur-sm px-4 py-2.5 shadow-md rounded-2xl fixed top-4 left-1/2 -translate-x-1/2 z-50 border border-aqua/10'
     : 'grid aspect-square max-w-md  grid-cols-2 grid-rows-2 gap-8'
 
   return (
@@ -82,7 +85,7 @@ export function ContentSelector({
       initial='hidden'
       animate='visible'
     >
-      {CONTENT_SELECTOR_ITEMS.map((item, idx) => (
+      {getContentSelectorItems(isMobile).map((item, idx) => (
         <motion.div
           key={`selector-item-${idx}-${item.path}`}
           variants={ITEM_VARIANTS}

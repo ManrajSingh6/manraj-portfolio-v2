@@ -22,7 +22,7 @@ export function SelectorItem({
     ? 'border-aqua text-aqua'
     : 'hover:border-aqua border-gray-300 hover:text-aqua'
 
-  const borderStyle = isMobile ? 'rounded-full! p-2' : 'rounded-lg'
+  const borderStyle = isMobile ? 'rounded-xl p-2' : 'rounded-lg'
   const consolidatedStyle = `${commonStyle} ${borderStyle}`
 
   return (
